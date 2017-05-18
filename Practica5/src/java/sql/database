@@ -1,0 +1,19 @@
+
+create table categoria(
+	categoria_id varchar(200),
+	categoria_nombre varchar(200),
+	 constraint pkvategoria primary key (categoria_id)
+);
+
+create table producto(
+	producto_id varchar(200),
+	categoria_id varchar(200),
+	nombre_categoria varchar(200),
+	producto_nombre varchar(200),
+	producto_stock int,
+	producto_precio int,
+
+	constraint pkproducto primary key (producto_id),
+	constraint fkpriducto foreign key (categoria_id)
+				references categoria (categoria_id)
+);
