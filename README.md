@@ -1,20 +1,22 @@
 # WebCorreccionStruts
 
 ### Estructura del Proyecto 
-* WebInf
-  - Struts config.xml
-  - web.xml
-  - inicio.jsp
-  - consulta.jsp
-* controladoresform
-  - EstudiantesBean.java
-  - SeleccionEstForm.java
-* controladoresAction
-  - EstudianteAction.java
-* modelo
-  - ConexionDB.java
-  - GestionEstudiante.java
 
+```
+WebInf
+  |-- Struts config.xml
+  |-- web.xml
+  |-- inicio.jsp
+  |-- consulta.jsp
+controladoresform
+  |-- EstudiantesBean.java
+  |-- SeleccionEstForm.java
+controladoresAction
+  |-- EstudianteAction.java
+modelo
+  |-- ConexionDB.java
+  |-- GestionEstudiante.java
+```
 ### Explicacion de cada uno de los componentes
 * web.xml
 - para este archivo comenzaremos por colocar el driver la cadena de conexión, el driver y la pagina de inicio 
