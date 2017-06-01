@@ -22,7 +22,7 @@
             <p>Cedula:</p>
 
             <html:text name="seleccionEstForm" property="numCedula" size="20"></html:text>
-            <!--Debemos tener en cuenta que esta propiedad de numCedula es el getY set que tenemos-->
+                <!--Debemos tener en cuenta que esta propiedad de numCedula es el getY set que tenemos-->
 
             <html:submit value="Mostrar Listado de Estudiantes" />
         </html:form>
