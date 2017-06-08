@@ -98,6 +98,7 @@ modelo
         String driver = this.getServlet().getServletContext().getInitParameter("driver");
         String cadenacon = this.getServlet().getServletContext().getInitParameter("cadenacon");//este es el nombre de web.xml
         GestionClientes gc = new GestionClientes(driver, cadenacon);
+    //con el Objeto Gestion Cliente Mediante la función validar del obj GestCliente, estoy encapsulando un objeto del tipo validacion Form
     //Invocamos al metodo validar() del modelo para saber si el usuario esta o no esta registrado
         ValidacionForm vf = (ValidacionForm) form;
         if (gc.validar(vf)) {
@@ -120,7 +121,8 @@ modelo
         
         GestionClientes gc=new GestionClientes(driver, cadenacon);
         RegistroForm rf=(RegistroForm) form;
-        
+        //con el objeto GC(GestionCliente) en su función Registrar
+        //encapsula registroForm
         gc.registrar(rf);
         return mapping.findForward("login");
     }
@@ -196,3 +198,5 @@ public void cierraConexion(Connection cn){
         }
     }
 ```    
+4. *Adicionales*
+  Cuando una clase extiende de Action se puede atender solo una petición , es decir /registrar es capturado solo por una clase que extienda de Action, en cambio con Dispatcher podemos atender varias peticiones en una sola Clase
