@@ -27,11 +27,11 @@ modelo.conexionDB con;
         try {
             Connection cn = con.getConexion();
             Statement st = cn.createStatement();
-            String cadenaSQL = "select categoria_id from categoria";
+            String cadenaSQL = "select categoria_id,categoria_nombre from categoria";
             ResultSet rs = st.executeQuery(cadenaSQL);
 
             while (rs.next()) {
-                conjunto_categoria.add(rs.getString("categoria_id"));
+                conjunto_categoria.add(rs.getString("categoria_nombre"));
             }
 
             con.cierraConexion(cn);
@@ -41,12 +41,14 @@ modelo.conexionDB con;
         return conjunto_categoria;
     }
 
-    public ArrayList<productosBean> consulta_productos(String categoria_codigo) {
+    public ArrayList<productosBean> consulta_productos(String categoria_nombre) {
         ArrayList<productosBean> conjunto_productos = new ArrayList<productosBean>();
         try {
             Connection cn = con.getConexion();
             Statement st = cn.createStatement();
-            String cadenaSQL = "select a.categoria_id, b.categoria_nombre, a.producto_id,a.producto_nombre, a.producto_stock, a.producto_precio from producto a, categoria b where a.categoria_id='" + categoria_codigo + "' and a.categoria_id = b.categoria_id ";
+//            String cadenaSQL = "select a.categoria_id, b.categoria_nombre, a.producto_id,a.producto_nombre, a.producto_stock, a.producto_precio from producto a, categoria b where a.categoria_nombre='" + categoria_nombre + "' and a.categoria_id = b.categoria_id ";
+            String cadenaSQL = "select a.categoria_id, b.categoria_nombre, a.producto_id,a.producto_nombre, a.producto_stock, a.producto_precio from producto a, categoria b where b.categoria_nombre like '"+ categoria_nombre+"' and a.categoria_id = b.categoria_id";
+
             ResultSet rs = st.executeQuery(cadenaSQL);
             while (rs.next()) {
                productosBean prod =new productosBean();
